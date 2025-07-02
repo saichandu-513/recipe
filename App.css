@@ -1,0 +1,399 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* *{
+  background-color: crimson;
+} */
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tile:hover {
+  transform:  scale(1.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+.hobby {
+  position: absolute;
+  bottom: 0; /* Position the div at the top of the parent */
+  width: 100%;
+  height: 30%; /* Default height (top 50%) */
+  background-color: #4a148c;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the top */
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: height 0.3s ease, background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.hobby .heading {
+  position: absolute;
+  bottom: 30px; /* Keep the heading fixed at the bottom */
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.hobby .content {
+  opacity: 0;
+  padding: 10px;
+  transform: translateY(50%); /* Initially hidden */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tile:hover .hobby {
+  height: 100%; /* Expand fully on hover */
+  background-image: linear-gradient(to bottom right, #6a1b9a,#6a1b9a, #e91e63); /* Darken background */
+  border: 1px solid rgb(147, 149, 145);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0%;
+}
+
+.tile:hover .hobby .heading {
+  opacity: 0; /* Fade out heading on hover */
+}
+
+.tile:hover .hobby .content {
+  opacity: 1;
+  transform: translateY(0); /* Bring into view */
+}
+.pfp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.pfp img {
+  max-width: 150px;
+  border-radius: 50%;
+  /* background-color: #ff1744 !important; */
+  /* padding: 30px !important */
+}
+
+
+
+.st7 {
+  fill: #61dafb !important;
+  stroke: aqua !important;
+}
+
+
+
+.nav-link {
+  color: #4bace9;
+  background-color: #e9ecef;
+  border: 1px solid #ddd;
+  display: inline-block; /* Prevent tabs from taking full width */
+  padding: 10px 20px !important; /* Padding for all tabs (active and non-active) */
+  color: var(--black) !important;
+  font-size: 15px !important;
+  text-decoration: none;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+  border: 1px solid transparent; /* Add border to maintain spacing */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.tab-listt {
+  display: flex; /* Arrange tabs in a row */
+  gap: 16px; /* Space between tabs */
+}
+
+.tab-listt .nav-link:hover,
+.tab-listt .nav-link.active {
+  color: #4bace9;
+  background-color: #e9ecef;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 7px;
+  cursor: pointer;
+
+}
+
+.tab-listt .nav-link.active {
+  color: #ffffff !important;
+  background-color: #3d068a !important;
+  border: 2px solid #04481f !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+}
+
+.tab-panel {
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  font-size: 0.95em;
+  color: #555;
+}
+
+
+
+.card {
+  width: 200px;
+  margin-bottom: 15px;
+}
+
+.card-body {
+  text-align: center;
+  padding: 10px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+button {
+  border-radius: 5px;
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* Main Layout */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #eceff1;
+
+}
+
+.app-header {
+  height: 12vh;
+  background: #eceff1;
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 20px;
+}
+
+/* Sidebar & Content Layout */
+.container {
+  display: flex;
+  flex: 1; /* Allow sidebar and content to take up remaining space */
+  border-top-left-radius: 40px; /* Add border-top-left-radius */
+  border-top-right-radius: 40px; /* Add border-top-right-radius */
+  overflow: hidden; /* Prevent content from spilling over the rounded corners */
+  max-width: 100% !important;
+  background-color: #000;
+  padding: 0px !important;
+  margin: 0px !important;
+  color: #fff
+}
+
+.sidebar-container {
+  padding-top: 10px;
+  width: 250px;
+  background: #263238;
+  /* border-right: 2px solid #ddd; */
+  transition: width 0.3s ease-in-out;
+  height: 100%; /* Make sure sidebar takes full height */
+  overflow: hidden;
+  color: #fff
+}
+
+.sidebar-container.minimized {
+  width: 60px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-heading {
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.menu-heading:hover,
+.menu-heading.active {
+  background-color: #4a148c;
+  color: white;
+}
+
+.menu-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.menu-icon {
+  font-size: 22px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.content-area {
+  flex: 1; /* Content takes remaining space */
+  padding: 20px;
+  overflow-y: auto;
+  height: 100%; /* Ensure it fills full height */
+  transition: 0.3s;
+}
+
+::selection{
+  color:rgb(232, 23, 23);
+  background-color: rgb(103, 107, 116);
+}
+
+
+.header{
+  height: 10vh;
+  width: 100%;
+  background-image: linear-gradient(to right, #4a148c, #fd88c6);
+  display: flex;
+  align-items: center;
+  padding:10px 50px;
+  justify-content: space-between;
+  position: sticky;
+  overflow: hidden;
+  top: 0;
+  z-index: 999;
+}
+.header h3{
+  color:aliceblue
+}
+
+.navlinks{
+  display: flex;
+}
+.navlinks h4{
+  padding: 10px;
+  color: #4a148c;
+  cursor: pointer
+}
+.animation{
+width: 700px;
+height: 700px;
+background: red;
+animation: mymove 50s infinite;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #f44545;
+opacity:0.7
+
+}
+@keyframes mymove {
+  0%   { color: red; background-color: red; }
+  /* 5%   { color: orangered; background-color: orangered; } */
+  10%  { color: orange; background-color: orange; }
+  /* 15%  { color: gold; background-color: gold; } */
+  20%  { color: yellow; background-color: yellow; }
+  /* 25%  { color: yellowgreen; background-color: yellowgreen; } */
+  30%  { color: limegreen; background-color: limegreen; }
+  /* 35%  { color: green; background-color: green; } */
+  40%  { color: seagreen; background-color: seagreen; }
+  /* 45%  { color: teal; background-color: teal; } */
+  50%  { color: turquoise; background-color: turquoise; }
+  /* 55%  { color: skyblue; background-color: skyblue; } */
+  60%  { color: dodgerblue; background-color: dodgerblue; }
+  /* 65%  { color: royalblue; background-color: royalblue; } */
+  70%  { color: blue; background-color: blue; }
+  /* 75%  { color: indigo; background-color: indigo; } */
+  80%  { color: blueviolet; background-color: blueviolet; }
+  /* 85%  { color: purple; background-color: purple; } */
+  90%  { color: magenta; background-color: magenta; }
+  /* 95%  { color: deeppink; background-color: deeppink; } */
+  100% { color: red; background-color: red; }
+
+}
+
+
+.inside{
+  padding: 20px 30px;
+  background-color: #202021;
+  border-radius: 20px;
+  opacity:1;
+  font-size: 30px;
+}
